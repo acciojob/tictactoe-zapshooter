@@ -88,10 +88,10 @@
   <div class="container">
     <h1>Tic Tac Toe</h1>
     <div class="input-form" id="form">
-      <label for="player-1">Player 1</label>
-      <input type="text" id="player-1" placeholder="enter name" autocomplete="off">
-      <label for="player-2">Player 2</label>
-      <input type="text" id="player-2" placeholder="enter name" autocomplete="off">
+      <label for="player1">Player 1</label>
+      <input type="text" id="player1" placeholder="enter name" autocomplete="off">
+      <label for="player2">Player 2</label>
+      <input type="text" id="player2" placeholder="enter name" autocomplete="off">
       <button id="submit">Start Game</button>
     </div>
     <div class="message" id="message"></div>
@@ -112,14 +112,14 @@
 
     // Winning combinations array
     const wins = [
-      [0,1,2],[3,4,5],[6,7,8], // Rows
-      [0,3,6],[1,4,7],[2,5,8], // Columns
-      [0,4,8],[2,4,6],         // Diagonals
+      [0,1,2],[3,4,5],[6,7,8],
+      [0,3,6],[1,4,7],[2,5,8],
+      [0,4,8],[2,4,6],
     ];
 
     submitBtn.onclick = function() {
-      player1 = document.getElementById('player-1').value.trim();
-      player2 = document.getElementById('player-2').value.trim();
+      player1 = document.getElementById('player1').value.trim();
+      player2 = document.getElementById('player2').value.trim();
       if(!player1 || !player2) {
         messageDiv.textContent = "Please enter both player names!";
         return;
@@ -160,7 +160,7 @@
            board[c[1]] === board[c[2]]) {
           gameOver = true;
           highlightWinner(c);
-          messageDiv.textContent = `${turn === 0 ? player1 : player2}, congratulations you won!`;
+          messageDiv.textContent = `${turn === 0 ? player1 : player2} congratulations you won!`;
           return;
         }
       }
